@@ -1,0 +1,6 @@
+{
+  "name": "Hack Idea Ranker",
+  "description": "Evaluate and rank hackathon ideas using Google Gemini AI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}

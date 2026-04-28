@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Oswald:wght@600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #110d17;
+  --color-surface: rgba(22, 17, 30, 0.7);
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-accent-pink: #d4717f;
+  --color-accent-pink-glow: rgba(212, 113, 127, 0.3);
+  --color-accent-yellow: #e8ba5e;
+  --color-accent-yellow-glow: rgba(232, 186, 94, 0.3);
+  --color-success: #00ff88;
+  --color-danger: #ff4444;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #9a94a6;
+  --color-text-muted: #5c556b;
+  
+  --font-space: "Space Grotesk", sans-serif;
+  --font-oswald: "Oswald", sans-serif;
+}
+
+@layer base {
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    pointer-events: none;
+    z-index: -1;
+    background-image: 
+      radial-gradient(circle at 15% 20%, var(--color-accent-yellow-glow) 0%, transparent 20%),
+      radial-gradient(circle at 85% 80%, var(--color-accent-pink-glow) 0%, transparent 20%);
+  }
+}
+
+@layer utilities {
+  .glow-focus:focus {
+    outline: none;
+    border-color: var(--color-accent-yellow);
+    box-shadow: 0 0 20px var(--color-accent-yellow-glow);
+  }
+  
+  .glow-hover:hover {
+    border-color: var(--color-accent-pink) !important;
+    background-color: var(--color-accent-pink-glow) !important;
+    box-shadow: 0 0 30px var(--color-accent-pink-glow);
+  }
+
+  .star {
+    position: fixed;
+    background: white;
+    clip-path: polygon(50% 0%, 55% 45%, 100% 50%, 55% 55%, 50% 100%, 45% 55%, 0% 50%, 45% 45%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* Custom scrollbar for terminal vibe */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border); 
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent-pink); 
+  }
+}
+
